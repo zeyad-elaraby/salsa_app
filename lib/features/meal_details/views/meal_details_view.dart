@@ -4,10 +4,10 @@ import 'package:salsa_app/features/meal_details/model/meal_details_model.dart';
 import 'package:salsa_app/features/meal_details/view_model/cubit/meal_details_cubit.dart';
 import 'package:salsa_app/features/meal_details/view_model/cubit/meal_details_state.dart';
 
-class MealDetailsScreen extends StatelessWidget {
+class MealDetailsView extends StatelessWidget {
   final String mealId;
 
-  const MealDetailsScreen({super.key, required this.mealId});
+  const MealDetailsView({super.key, required this.mealId});
 
   @override
   Widget build(BuildContext context) {

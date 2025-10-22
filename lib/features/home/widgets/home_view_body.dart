@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:salsa_app/features/category_details/view/category_details.dart';
 import 'package:salsa_app/features/home/model/categories_model.dart';
 import 'package:salsa_app/features/home/model/random_meals_model.dart';
 import 'package:salsa_app/features/home/view_model/cubit/home_cubit.dart';
@@ -28,7 +29,7 @@ class HomeViewBody extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Hello, Food Lover! 👋',
+                          'Hello, Welocome To Salsa! 👋',
                           style: TextStyle(
                             fontSize: 28.sp,
                             fontWeight: FontWeight.bold,
@@ -53,29 +54,13 @@ class HomeViewBody extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(20.w, 24.h, 20.w, 16.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Categories',
-                          style: TextStyle(
-                            fontSize: 24.sp,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'See All',
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              color: Colors.orange[700],
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ],
+                    child: Text(
+                      'Categories',
+                      style: TextStyle(
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                      ),
                     ),
                   ),
                 ),
@@ -142,7 +127,19 @@ class HomeViewBody extends StatelessWidget {
           mainAxisSpacing: 16.h,
         ),
         delegate: SliverChildBuilderDelegate((context, index) {
-          return CategoryItem(category: categories[index], onTap: () {});
+          return CategoryItem(
+            category: categories[index],
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CategoryDetails(
+                    categoryName: categories[index].strCategory!,
+                  ),
+                ),
+              );
+            },
+          );
         }, childCount: categories.length),
       ),
     );
