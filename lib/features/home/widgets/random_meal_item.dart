@@ -105,7 +105,7 @@ class RandomMealItem extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  MealDetailsScreen(mealId: meal.idMeal!),
+                                  MealDetailsView(mealId: meal.idMeal!),
                             ),
                           );
                         },

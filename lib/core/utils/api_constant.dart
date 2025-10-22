@@ -3,4 +3,5 @@ class ApiConstant {
   static String categories = "/categories.php";
   static String randomMeals = "/random.php";
   static String mealDetails = "/lookup.php";
+  static String categoryDetails = "/filter.php";
 }
