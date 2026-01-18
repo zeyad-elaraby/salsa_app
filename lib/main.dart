@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:salsa_app/core/config/dio_helper.dart';
 import 'package:salsa_app/core/services/custom_bloc_observer.dart';
 import 'package:salsa_app/features/home/view/home_view.dart';
+import 'package:salsa_app/features/splash/views/splash_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
 
-      child: MaterialApp(debugShowCheckedModeBanner: false, home: HomeView()),
+      child: MaterialApp(debugShowCheckedModeBanner: false, home: SplashView()),
     );
   }
 }

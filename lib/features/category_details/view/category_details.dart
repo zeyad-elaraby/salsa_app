@@ -14,10 +14,13 @@ class CategoryDetails extends StatelessWidget {
       create: (context) =>
           CategoryDetailsCubit()..getCategoryDetails(categoryName),
       child: Scaffold(
+        appBar: AppBar(title: Text(categoryName)),
         body: BlocBuilder<CategoryDetailsCubit, CategoryDetailsState>(
           builder: (context, state) {
             if (state is CategoryDetailsLoading) {
-              return CircularProgressIndicator();
+              return Center(
+                child: CircularProgressIndicator(color: Colors.orange),
+              );
             }
             if (state is CategoryDetailsError) {
               return Text(state.message);
